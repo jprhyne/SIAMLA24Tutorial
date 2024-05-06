@@ -1,0 +1,52 @@
+\documentclass[12pt]{beamer}
+%\usepackage{mystyle}
+
+% Since <T>LAPACK does not properly render in LaTeX without putting < in math mode,
+%   we define the following command to make referencing it more convenient
+\newcommand{\tlapack}{$<$T$>$LAPACK}
+
+\author{Johnathan Rhyne}
+\title{Developing with \tlapack}
+
+\begin{document}
+    \begin{frame}
+        \maketitle
+    \end{frame}
+    \begin{frame}
+        \tableofcontents
+    \end{frame}
+    \section{What is \tlapack?}
+    \begin{frame}
+        \frametitle{What is \tlapack?}
+        2-3 slides discussing that \tlapack is by discussing what's in the README of the 
+        repo focusing on the templating paradigm and its beenfits
+    \end{frame}
+    \section{Developing for \tlapack}
+    \begin{frame}
+        \frametitle{Developing for \tlapack}
+        Some slides that will discuss how code is written for \tlapack (header files, 
+        compilation of it, and calling it)
+    \end{frame}
+    \section{My project within \tlapack}
+    \begin{frame}
+        \frametitle{My project within \tlapack}
+        Discuss how I wrote the code for \url{https://github.com/jprhyne/tlapack/tree/hqr}
+    \end{frame}
+    \section{Examples of calling code}
+    \begin{frame}
+        Explore some of the testing files in the repo showing how we construct calls (discuss some of the nuances 
+        especially wrt the templating) 
+    \end{frame}
+    \section{Timing of my project}
+    \begin{frame}
+        \frametitle{Timing of my project}
+        Present some timing (performance) of things in email thread to show how we might use this as well as 
+        some motivation about why we care
+    \end{frame}
+    \section{Differing precisions}
+    \begin{frame}
+        \frametitle{Differing precisions}
+        At least reference the existence of using differing precisions even if we don't have time to implement it
+        and show results.
+    \end{frame}
+\end{document}
