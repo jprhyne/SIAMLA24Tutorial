@@ -46,18 +46,6 @@
         \end{enumerate}
     \end{frame}
     \section{Examples of calling code}
-    \begin{frame}
-        \frametitle{Testing our code}
-        As far as testing goes, since we are working with a C++ repository, we can take advantage of libraries
-        like Catch2, which facilitate writing test cases in a way familiar to other languages like Java. This
-        means that we an write a single C++ file that will automatically handle reporting errors.
-        % Some prefer having all of the tests inside a shell script as this requires less overhead,
-        % and doesn't require us to compile our tests. TODO: Ask Julien why he likes this method and add his
-        % reasoning
-        % One benefit of this is when we are at a large scale, it is much easier to write code in the paradigm of
-        % "only tell me where there is a problem, as hearing nothing about a given routine/function
-        % implies the functionality works 
-    \end{frame}
     % If they aren't going to talk about Catch2, I will discuss how I used it 
     \begin{frame}
         \frametitle{Examples of calling code}
@@ -68,6 +56,22 @@
         It's possible to omit the namespace dereference in the function calls, but it is overall not too
         cumbersome to leave it this way and makes it much more clear where functions you are using come from.
     \end{frame}
+    \begin{frame}
+        \frametitle{Testing our code}
+        \includegraphics[width=\textwidth]{images/numericalExperiments.png}
+        As we can see, when we template, the code that is called can be much simpler and if we are being given
+        our data from another source, we don't need to implement any kind of checcking to determine the correct
+        call!
+        %As far as testing goes, since we are working with a C++ repository, we can take advantage of libraries
+        %like Catch2, which facilitate writing test cases in a way familiar to other languages like Java. This
+        %means that we an write a single C++ file that will automatically handle reporting errors.
+        % Some prefer having all of the tests inside a shell script as this requires less overhead,
+        % and doesn't require us to compile our tests. TODO: Ask Julien why he likes this method and add his
+        % reasoning
+        % One benefit of this is when we are at a large scale, it is much easier to write code in the paradigm of
+        % "only tell me where there is a problem, as hearing nothing about a given routine/function
+        % implies the functionality works 
+    \end{frame}
     \section{Timing of my project}
     \begin{frame}
         \frametitle{Timing of my project}
@@ -77,6 +81,9 @@
         %Fortran LAPACK where we need to call a different function when we use a different data type, and is
         %possible for there to be a bug in a port from double to single 
 
+        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfSingle.pdf}
+        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfDouble.pdf}
+
 % Goal is to have 4-7 slides detailing numerical experiments
     \end{frame}
     \section{Differing precisions}
@@ -85,6 +92,6 @@
         Some users already use the ease of the templating to use non-standard precisions. For example, this
         user was testing 8-bit floating point arithmetic, and only had to change how data was declared.
         \url{https://github.com/SudhanvaKulkarni123/tlapack}
-        % Will try to get some more stuff for this section
+        % Will try to get some more stuff for this section, but no guarantees
     \end{frame}
 \end{document}

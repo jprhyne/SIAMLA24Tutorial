@@ -1,0 +1,106 @@
+make: 'experiments.exe' is up to date.
+n=100
+Running hqr 10 times
+Single precision
+TQE:0.0377021
+TE:0.0198131
+E:0.014394
+Double precision
+TQE:0.0449212
+TE:0.0236681
+E:0.017236
+Single precision
+TQE:0.037781
+TE:0.020031
+E:0.0147901
+Double precision
+TQE:0.0451488
+TE:0.025331
+E:0.0169482
+Single precision
+TQE:0.037653
+TE:0.0197291
+E:0.0144219
+Double precision
+TQE:0.0451291
+TE:0.0236471
+E:0.0168819
+Single precision
+TQE:0.0380981
+TE:0.019819
+E:0.0145621
+Double precision
+TQE:0.0453432
+TE:0.023767
+E:0.0170238
+Single precision
+TQE:0.0382011
+TE:0.0197768
+E:0.014513
+Double precision
+TQE:0.0451331
+TE:0.0236101
+E:0.0171099
+Single precision
+TQE:0.0379288
+TE:0.0197511
+E:0.014441
+Double precision
+TQE:0.045351
+TE:0.0234849
+E:0.0169029
+Single precision
+TQE:0.038415
+TE:0.019639
+E:0.0143862
+Double precision
+TQE:0.0451159
+TE:0.023608
+E:0.0170681
+Single precision
+TQE:0.039341
+TE:0.01967
+E:0.0144291
+Double precision
+TQE:0.044961
+TE:0.023422
+E:0.016849
+Single precision
+TQE:0.0378768
+TE:0.0200758
+E:0.0144749
+Double precision
+TQE:0.0453901
+TE:0.0234768
+E:0.016902
+Single precision
+TQE:0.0380569
+TE:0.0199149
+E:0.0146101
+Double precision
+TQE:0.045265
+TE:0.0237622
+E:0.0170901
+n=200
+Running hqr 10 times
+Single precision
+TQE:0.286474
+TE:0.148564
+E:0.103171
+Double precision
+TQE:0.360026
+TE:0.184351
+E:0.129616
+Single precision
+TQE:0.286502
+TE:0.145934
+E:0.102651
+Double precision
+TQE:0.361605
+TE:0.193214
+E:0.140447
+Single precision
+TQE:0.287248
+TE:0.146858
+E:0.103514
+Double precision
