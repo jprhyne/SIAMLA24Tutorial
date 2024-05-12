@@ -27,17 +27,76 @@ double getTime()
     gettimeofday(&tp, NULL);
     return ((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
 }
+
 using namespace tlapack;
+template <typename matrix_t>
+void computeTimes(std::size_t n)
+{
+    using T = type_t<matrix_t>;
+    using idx_t = size_type<matrix_t>;
+    using real_t = real_type<T>;
+    using complex_t = std::complex<T>;
+    // Create functors
+    Create<matrix_t> new_matrix;
+    // Create matrices
+    std::vector<T> A_; auto A = new_matrix( A_, n, n);
+    std::vector<T> H_; auto H = new_matrix( H_, n, n);
+    std::vector<T> Hs_; auto Hs = new_matrix( Hs_, n, n);
+    std::vector<T> Q_; auto Q = new_matrix( Q_, n, n);
+    std::vector<T> Qs_; auto Qs = new_matrix( Qs_, n, n);
+    std::vector<complex_t> s(n);
+    //Populate A and U with random numbers
+    rand_generator gen;
+    idx_t seed = 17519;
+    gen.seed(seed);
+    for(idx_t i = 0; i < n; i++) {
+        for(idx_t j = 0; j < n; j++) {
+            T val = rand_helper<T>(gen);
+            A(i,j) = val; 
+            H(i,j) = val; 
+        }
+    }
+    std::vector<T> tau1(n);
+    T zeroT = T(0);
+    real_t zero = real_t(0);
+    gehrd(0, n, H, tau1);
+    lacpy(Uplo::General, H, Q);
+    lacpy(Uplo::General, H, Hs);
+    unghr(0, n, Q, tau1);
+    lacpy(Uplo::General, Q, Qs);
+    idx_t ilo = 0;
+    idx_t igh = n;
+    for (idx_t i = 1; i < n; i++)
+        for (idx_t j = 0; j < i - 1; j++)
+            H(i,j) = zeroT;
+    double timeHqr = -getTime();
+    real_t norm1 = zero;
+    auto retCode = tlapack::eispack_hqr(true, true, ilo, igh, H, s, Q, norm1);
+    timeHqr += getTime();
+    // Print out the time for computing the eigenvalues, T, and the schur vectors
+    std::cout << "TQE:" << timeHqr << "\n";
+    // copy over everything back to the original matrices
+    lacpy(Uplo::General, Hs, H);
+    lacpy(Uplo::General, Qs, Q);
+    timeHqr = -getTime();
+    retCode = tlapack::eispack_hqr(true, false, ilo, igh, H, s, Q, norm1);
+    timeHqr += getTime();
+    // Print out the time for computing the eigenvalues and T
+    std::cout << "TE:" << timeHqr << "\n";
+    // copy over everything back to the original matrices
+    lacpy(Uplo::General, Hs, H);
+    lacpy(Uplo::General, Qs, Q);
+    timeHqr = -getTime();
+    retCode = tlapack::eispack_hqr(false, false, ilo, igh, H, s, Q, norm1);
+    timeHqr += getTime();
+    // Print out the time for computing just the eigenvalues
+    std::cout << "E:" << timeHqr << "\n";
+    return;
+}
+
 int main( int argc, char **argv)
 {
-    /**********************************************************************************************
-     * Single precision section                                                                   *
-     **********************************************************************************************/
-    using T1 = float;
-    using idx_t = std::size_t;
-    using complex_t1 = std::complex<T1>;
-    Create<legacyMatrix<T1,idx_t,Layout::ColMajor>> new_matrix1;
-    idx_t i,n;
+    std::size_t i, n;
     n = -1;
     // Do some input parsing to determine if we give the size of the matrix we want to work with.
     for(i = 1; i < argc; ++i){
@@ -46,118 +105,16 @@ int main( int argc, char **argv)
             i++;
         }
     }
-
     if (n == -1)
         n = 30;
-
-
-    // Create matrices
-    std::vector<T1> A1_; auto A1 = new_matrix1( A1_, n, n);
-    std::vector<T1> H1_; auto H1 = new_matrix1( H1_, n, n);
-    std::vector<T1> Hs1_; auto Hs1 = new_matrix1( Hs1_, n, n);
-    std::vector<T1> Q1_; auto Q1 = new_matrix1( Q1_, n, n);
-    std::vector<T1> Qs1_; auto Qs1 = new_matrix1( Qs1_, n, n);
-    std::vector<complex_t1> s1(n);
-    //Populate A and U with random numbers
-    rand_generator gen;
-    idx_t seed = 17519;
-    gen.seed(seed);
-    for(idx_t i = 0; i < n; i++) {
-        for(idx_t j = 0; j < n; j++) {
-            T1 val = rand_helper<T1>(gen);
-            A1(i,j) = val; 
-            H1(i,j) = val; 
-        }
-    }
-    std::vector<T1> tau1(n);
-    T1 zero1 = T1(0);
-    T1 one1 = T1(1);
-    gehrd(0, n, H1, tau1);
-    lacpy(Uplo::General, H1, Q1);
-    lacpy(Uplo::General, H1, Hs1);
-    unghr(0, n, Q1, tau1);
-    lacpy(Uplo::General, Q1, Qs1);
-    idx_t ilo = 0;
-    idx_t igh = n;
-    for (idx_t i = 1; i < n; i++)
-        for (idx_t j = 0; j < i - 1; j++)
-            H1(i,j) = zero1;
-    double timeHqr = -getTime();
-    //auto normA = lange(tlapack::frob_norm, A);
-    T1 norm1 = zero1;
-    auto retCode = tlapack::eispack_hqr(true, true, ilo, igh, H1, s1, Q1, norm1);
-    timeHqr += getTime();
-    std::cout << "Single precision\n";
-    // Print out the time for computing both the eigenvalues, T, and the schur vectors
-    std::cout << "TQE:" << timeHqr << "\n";
-    // copy over everything back to the original matrices
-    lacpy(Uplo::General, Hs1, H1);
-    lacpy(Uplo::General, Qs1, Q1);
-    timeHqr = -getTime();
-    retCode = tlapack::eispack_hqr(true, false, ilo, igh, H1, s1, Q1, norm1);
-    timeHqr += getTime();
-    std::cout << "TE:" << timeHqr << "\n";
-    // copy over everything back to the original matrices
-    lacpy(Uplo::General, Hs1, H1);
-    lacpy(Uplo::General, Qs1, Q1);
-    timeHqr = -getTime();
-    retCode = tlapack::eispack_hqr(false, false, ilo, igh, H1, s1, Q1, norm1);
-    timeHqr += getTime();
-    std::cout << "E:" << timeHqr << "\n";
-    /**********************************************************************************************
-     * Double precision section                                                                   *
-     **********************************************************************************************/
-    using T2 = double;
-    using idx_t = std::size_t;
-    using complex_t2 = std::complex<T2>;
-    Create<legacyMatrix<T2,idx_t,Layout::ColMajor>> new_matrix2;
-    // Create matrices
-    std::vector<T2> A2_; auto A2 = new_matrix2( A2_, n, n);
-    std::vector<T2> H2_; auto H2 = new_matrix2( H2_, n, n);
-    std::vector<T2> Hs2_; auto Hs2 = new_matrix2( Hs2_, n, n);
-    std::vector<T2> Q2_; auto Q2 = new_matrix2( Q2_, n, n);
-    std::vector<T2> Qs2_; auto Qs2 = new_matrix2( Qs2_, n, n);
-    std::vector<complex_t2> s2(n);
-    //Populate A and U with random numbers
-    gen.seed(seed);
-    for(idx_t i = 0; i < n; i++) {
-        for(idx_t j = 0; j < n; j++) {
-            T2 val = rand_helper<T2>(gen);
-            A2(i,j) = val; 
-            H2(i,j) = val; 
-        }
-    }
-    std::vector<T2> tau2(n);
-    T2 zero2 = T2(0);
-    T2 one2 = T2(1);
-    gehrd(0, n, H2, tau2);
-    lacpy(Uplo::General, H2, Q2);
-    lacpy(Uplo::General, H2, Hs2);
-    unghr(0, n, Q2, tau2);
-    lacpy(Uplo::General, Q2, Qs2);
-    for (idx_t i = 1; i < n; i++)
-        for (idx_t j = 0; j < i - 1; j++)
-            H2(i,j) = zero2;
-    timeHqr = -getTime();
-    //auto normA = lange(tlapack::frob_norm, A);
-    T2 norm2 = zero2;
-    retCode = tlapack::eispack_hqr(true, true, ilo, igh, H2, s2, Q2, norm2);
-    timeHqr += getTime();
-    std::cout << "Double precision\n";
-    // Print out the time for computing both the eigenvalues, T, and the schur vectors
-    std::cout << "TQE:" << timeHqr << "\n";
-    // copy over everything back to the original matrices
-    lacpy(Uplo::General, Hs2, H2);
-    lacpy(Uplo::General, Qs2, Q2);
-    timeHqr = -getTime();
-    retCode = tlapack::eispack_hqr(true, false, ilo, igh, H2, s2, Q2, norm2);
-    timeHqr += getTime();
-    std::cout << "TE:" << timeHqr << "\n";
-    // copy over everything back to the original matrices
-    lacpy(Uplo::General, Hs2, H2);
-    lacpy(Uplo::General, Qs2, Q2);
-    timeHqr = -getTime();
-    retCode = tlapack::eispack_hqr(false, false, ilo, igh, H2, s2, Q2, norm2);
-    timeHqr += getTime();
-    std::cout << "E:" << timeHqr << "\n";
+    /**********************************************************************************************\
+    |* Single precision section                                                                   *|
+    \**********************************************************************************************/
+    std::cout << "Single precision" << std::endl;
+    computeTimes<legacyMatrix<float,std::size_t,Layout::ColMajor>>(n);
+    /**********************************************************************************************\
+    |* Double precision section                                                                   *|
+    \**********************************************************************************************/
+    std::cout << "Double precision" << std::endl;
+    computeTimes<legacyMatrix<double,std::size_t,Layout::ColMajor>>(n);
 }
