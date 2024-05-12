@@ -592,3 +592,55 @@ TQE:21.362
 TE:11.2282
 E:7.2484
 Single precision
+TQE:15.7925
+TE:8.41249
+E:5.76174
+Double precision
+TQE:21.275
+TE:10.5822
+E:7.12518
+Single precision
+TQE:15.6611
+TE:7.83512
+E:5.47751
+Double precision
+TQE:20.7494
+TE:10.3435
+E:7.03743
+Single precision
+TQE:15.2271
+TE:7.86266
+E:5.48938
+Double precision
+TQE:20.6057
+TE:10.3848
+E:7.09905
+Single precision
+TQE:15.1673
+TE:7.60138
+E:5.32714
+Double precision
+TQE:21.0006
+TE:10.5493
+E:7.16575
+Single precision
+TQE:15.6207
+TE:7.81916
+E:5.48224
+Double precision
+TQE:20.9715
+TE:10.5596
+E:7.17353
+Single precision
+TQE:15.5879
+TE:7.8189
+E:5.47868
+Double precision
+TQE:20.9863
+TE:10.5821
+E:7.2624
+Single precision
+TQE:15.1407
+TE:7.70519
+E:5.42081
+Double precision
