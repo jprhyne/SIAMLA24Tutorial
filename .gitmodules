@@ -1,0 +1,4 @@
+[submodule "numericalExperiments/tlapack"]
+	path = numericalExperiments/tlapack
+	url = git@github.com:jprhyne/tlapack.git
+	branch=hqr

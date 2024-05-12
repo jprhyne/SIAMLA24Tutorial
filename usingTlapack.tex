@@ -47,25 +47,35 @@
     \end{frame}
     \section{Examples of calling code}
     \begin{frame}
+        \frametitle{Testing our code}
+        As far as testing goes, since we are working with a C++ repository, we can take advantage of libraries
+        like Catch2, which facilitate writing test cases in a way familiar to other languages like Java. This
+        means that we an write a single C++ file that will automatically handle reporting errors.
+        % Some prefer having all of the tests inside a shell script as this requires less overhead,
+        % and doesn't require us to compile our tests. TODO: Ask Julien why he likes this method and add his
+        % reasoning
+        % One benefit of this is when we are at a large scale, it is much easier to write code in the paradigm of
+        % "only tell me where there is a problem, as hearing nothing about a given routine/function
+        % implies the functionality works 
+    \end{frame}
+    % If they aren't going to talk about Catch2, I will discuss how I used it 
+    \begin{frame}
         \frametitle{Examples of calling code}
         \includegraphics[width=\textwidth]{images/callingHqr.png}
         Looking at the testing files, we don't need to do anything special in order to call our templated
         functions. In fact, it is very similar to how you would use an interface like CBLAS or LAPACKE.
 
-        It's possible to omit the namespace dereference in the function calls, but the way to do so is 
-        not good practice for C++
+        It's possible to omit the namespace dereference in the function calls, but it is overall not too
+        cumbersome to leave it this way and makes it much more clear where functions you are using come from.
     \end{frame}
     \section{Timing of my project}
     \begin{frame}
         \frametitle{Timing of my project}
-        Present some timing (performance) of things in email thread to show how we might use this as well as 
-        some motivation about why we care
-
-%       Note: Having trouble compiling my current repo as the newest version of Catch2 doesn't play nice with
-%       the old version of the repository. Currently investigating ways to work around this problem (trying an old
-%       version of gcc as some other things I've found online have this as a solution to this problem
-%       Another option is to create a new branch based on current main and then manually copy the files over one 
-%       at a time. The former is preferred for building purposes
+        We first present the first two ``obvious'' options for our types, single and double precision
+        %As was hinted at above, all that we have to change is just the datatype we initialize as and throw
+        %it into the same exact function call. This is a little more user friendly than what is done with
+        %Fortran LAPACK where we need to call a different function when we use a different data type, and is
+        %possible for there to be a bug in a port from double to single 
 
 % Goal is to have 4-7 slides detailing numerical experiments
     \end{frame}
