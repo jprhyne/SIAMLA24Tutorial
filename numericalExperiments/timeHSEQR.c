@@ -1,223 +1,125 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
 #include <string.h>
-#include <math.h>
-#include "externalFunctions.h"
-#define a0(i,j) A[(i) + (j) * n]
-#define b0(i,j) B[(i) + (j) * n]
-#define z0(i,j) z[(i) + (j) * n]
-
-// Libraries used to facilitate timing
 #include <sys/time.h>
+#include <math.h>
 
-// This may be bad practice, but we put all malloc'd entities
-// as global variables in order to make freeing the
-// memory easier
-double* A;
-double* B;
-double* wr;
-double* wi;
-double* z;
-double* eigenValsReal;
-double* eigenValsImag;
-
-// Helper function to more easily grab the current time
-// used to facilitate timing executions
-// Stolen from: https://stackoverflow.com/a/17440673 as well as previous C projects.
-double getTime()
-{
+int main(int argc, char *argv[]) {
+    // integer variables
+    int info, lda, ldq, m, n, k, lwork, nb, i, j;
+    int workQuery = -1;
+    // double variables
+    double *A, *Q, *As, *tau, *work, *T, *wr, *wi=NULL;
+    double normA, tmp;
+    double perform_refL, elapsed_refL, norm_orth_1, norm_repres_1;
+    double zero = 0;
+    double one = 1;
+    double negOne = -1;
+    // struct for help with timing
     struct timeval tp;
-    gettimeofday(&tp, NULL);
-    return ((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
-}
+    // character variables
+    char aChar = 'A';
+    char iChar = 'I';
+    char sChar = 'S';
 
-void usage()
-{
-    printf("test_hqr2_fortran.exe [-h | -n sizeOfMatrix | -s seed | -t]\n");
-    printf("\t-h: Print this help dialogue\n");
-    printf("\t-n: The following argument must be a positive integer\n");
-    printf("\t\tThe default value is 20\n");
-    printf("\t-s: Sets the seed. The following argument must be a positive integer.\n");
-    printf("\t\tThe default value is 28.");
-    printf("\t-t: This flag tells us if we want the output in a human readable format\n");
-    printf("\t\twe default to machine readable to allow for easier plot creation");
-}
+    // Dummy value that is used when calling fortran
+    // functions that take characters from C
+    size_t dummy = 0;
 
-void freeMemory()
-{
-    free(A);
-    free(B);
-    free(wr);
-    free(wi);
-    free(z);
-    free(eigenValsReal);
-    free(eigenValsImag);
-}
+    bool timesOnly = false;
 
-int main(int argc, char ** argv) {
-	/*
-	 * Declaring variables to pass into the hqr_ subroutine
-	 */
-	int i, ierr, j, n;
-	// Store the constant 1 as a variable to be sent into hqr_
-	int ione=1;
-        
-        /*
-         * flag that determines if we want to print the results
-         * of hqr_ to the console
-         * By default, we do not do this
-         */
-        int printFlag = 0;
-		int testFlag = 0;
-        int eigenVectorFlag = 0;
-        int timeFlag = 0;
-
-	// Seeds the random number generator for repeatability
-        // Old seed was 734
-        int seed = 28;
-	// Default size of the matrix A
-    	n = 20;
-	
-	// Checking for if the user wants to set the size of the matrix A
-	for(i = 1; i < argc; i++){
-        char *argument = argv[i];
-        if (strcmp(argument, "-h") == 0) {
-            usage();
-            return 0;
-        } else if( strcmp( *(argv + i), "-n") == 0) {
-            // Grab the next term as this is the size
+    n = 30;
+    for(i = 1; i < argc; ++i){
+        if( strcmp( *(argv + i), "-ldq") == 0) {
+            ldq  = atoi( *(argv + i + 1) );
+            i++;
+        }
+        if( strcmp( *(argv + i), "-lda") == 0) {
+            lda  = atoi( *(argv + i + 1) );
+            i++;
+        }
+        if( strcmp( *(argv + i), "-n") == 0) {
             n  = atoi( *(argv + i + 1) );
-            //If the size is non-positive, exit immediately
-            if ( n <= 0 )
-                usage();
-            // Increment i to skip over this number
-            i++;
-        } else if ( strcmp ( *(argv + i), "-v") == 0) {
-            printFlag=1;
-        } else if ( strcmp ( *(argv + i), "-t") == 0) {
-		    testFlag=1;
-	    } else if ( strcmp ( *(argv + i), "-s") == 0) {
-            seed = atoi( *(argv + i + 1) ); 
-            if (seed <= 0)
-                usage();
             i++;
         }
-        else if ( strcmp ( *(argv + i), "-e") == 0 ) {
-                timeFlag = 1;
+        if( strcmp( *(argv + i), "-nb") == 0) {
+            nb  = atoi( *(argv + i + 1) );
+            i++;
         }
-	}
-    //Uncomment if we want to test the output of qrIteration.c
-    //testingFile = fopen("outputFileC.txt","w");
-    srand(seed);
-    // arrays that will hold the differences in the eigenvalues of hqr
-    // and this implementation
-	double eigRealDiff[n];
-	double eigImagDiff[n];
-    double eigVec[n*n];
-
-	// Allocate the memory for A to be generated. It will contain n^2 
-	// elements where each element is a double precision floating point number
-	A = (double *) malloc( n * n *  sizeof(double));
-	B = (double *) malloc( n * n *  sizeof(double));
-	// Create a vector to store the real parts of the eigenvalues
-	wr = (double *) malloc( n *  sizeof(double));
-	// Create a vector to store the real parts of the eigenvalues
-	wi = (double *) malloc( n *  sizeof(double));
-
-    z = (double *) malloc( n * n * sizeof(double));
-
-    for (i = 0; i < n; i++) 
-        z0(i,i) = 1;
-
-	// Generate A as a random matrix.
- 	for(i = 0; i < n; i++) {
-        int start = 0;
-        if (i - 1 > 0)
-            start = i - 1;
- 	    for(j = start; j < n; j++) {
-            double val = (double)rand() / (double)(RAND_MAX) - 0.5e+00;
-	        a0(i,j) = val; 
+        if( strcmp( *(argv + i), "-t") == 0) {
+            timesOnly = true;
         }
     }
 
-    // Store a copy of A into B so that we can run our own
-    // version of hqr written in C 
-    for ( int i = 0; i < n; i++ )
-        for ( int j = 0; j < n; j++ )
-            b0(i,j) = a0(i,j);
-    double time = -getTime();
-	hqr2schur_( &n, &n, &ione, &n, A, wr, wi, z, &ierr);
-    time += getTime();
-	/*
-	 * Below prints out wr and wi for inspection via 
-	 * MATLAB/visual inspection
-	 */
-	// Check that V^T V = I 
-    double orthZ, tmp;
-    orthZ = 0e+00;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            tmp = ( i == j ) ? 1.0e+00 : 0.00e+00;
-            for (int k = 0; k < n; k++) {
-                tmp -= z[k + i *n]*z[k + j * n];
-            }
-            orthZ += tmp * tmp;
-        }
-    }
-    orthZ = sqrt( orthZ );
+    if( lda < 0 ) lda = n;
+    if( ldq < 0 ) ldq = n;
+    m = n;
+    k = n;
 
-	// zero-out below quasi diagonal of H by looking wi
-    // First, zero out everything below the 1st subdiagonal
-    for (int i = 0; i < n; i++) 
-        for (int j = 0; j < i - 1; j++) 
-            A[i + j * n] = 0;
-    // if eigValsImag[k]  = 0 then the sub diagonal elements need to be 0
-    // If eigValsImag[k] != 0 then we have a schur block  
-    int k;
-    for (k = 0; k < n-1; k++) {
-        if (wi[k] == 0) {
-            A[(k + 1) + (k) * n] = 0;
-        } else if (k < n-2){
-            // This means we are in a schur block, so the next sub diagonal
-            // element must be 0
-            A[(k + 2) + (k + 1) * n] = 0;
-            k++;
+    // allocate memory for the matrices and vectors that we need to use
+    A =   (double *) malloc(lda * k * sizeof(double));
+    As =  (double *) malloc(lda * k * sizeof(double));
+    Q =   (double *) malloc(ldq * k * sizeof(double));
+    tau = (double *) malloc(k * sizeof(double));
+    wr =  (double *) malloc(k * sizeof(double));
+    wi =  (double *) malloc(k * sizeof(double));
+    T =   (double *) malloc(n * n * sizeof(double));
+
+    // Generate A as a random matrix
+    for (i = 0; i < lda * k; i++)
+        A[i] = (double) rand() / (double) (RAND_MAX) - 0.5e+00;
+    // Store random data inside Q to ensure that we do not assume anything about Q
+    for (i = 0; i < ldq * k; i++)
+        Q[i] = (double) rand() / (double) (RAND_MAX) - 0.5e+00;
+
+    // Store a copy of A inside As
+    dlacpy_(&aChar, &m, &k, A, &lda, As, &lda, dummy);
+    // Find the norm of A for use in later accuracy computations
+    normA = 0.0;
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) {
+            tmp = A[i + j*m];
+            normA += tmp*tmp;
         }
     }
-	// Check that A = V * H * V^T
-    double normR, normA;
-    normR = 0.0e+00;
-    double *Zt = malloc(n * n * sizeof(double));
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            Zt[i + j * n] = z[j + i * n];
-    // Yes, this is lazy and inefficient, however it 
-    // accomplishes our goals in a reasonable time frame
-    double *ZT = matmul(z,n,n,A,n,n);
-    double *rhs = matmul(ZT,n,n,Zt,n,n);
-    double *ans = matsub(rhs,n,n,B,n,n);
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            normR += ans[i + j * n] * ans[i + j * n];
-    normR = sqrt( normR );
-    normA = 0.0e+00;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            normA += B[i + j * n] * B[i + j * n];
-        }
-    }
-    normA = sqrt( normA );
-    if(testFlag)
-        printf("%% [ hqr2schur fortran ] n = %8d; seed = %8d; checks = [ %8.2e %8.2e ];\n", n, seed, orthZ, normR/normA);
-    else if (timeFlag)
-        printf( "%10.10e\n", time );
-    else
-        printf( "%8d %8d %6.1e %6.1e\n", n, seed, orthZ, normR/normA);
+    normA = sqrt(normA);
+    int ilo = 1;
+    int ihi = n;
+    // Create the work array to do workspace queries
+    work = (double *) malloc(sizeof(double));
+    // Determine how much workspace is needed for our operations
+    // Check dgeqrf first
+    dgehrd_(&n, &ilo, &ihi, A, &lda, tau, work, &workQuery, &info );
+    lwork = work[0];
+
+    dhseqr_ref_(&sChar, &iChar, &n, &ilo, &ihi, A, &n, wr, wi, Q, &n, work, &workQuery, &info);
+    if (work[0] > lwork)
+        lwork = work[0];
+
+    // reallocate work to be of the right size
+    work = (double *) realloc(work, lwork * sizeof(double));
+
+    // Call dgeqrf first
+    dgehrd_(&n, &ilo, &ihi, A, &lda, tau, work, &lwork, &info );
+
+    // Copy A into Q for use with dorgkr
+    dlacpy_(&aChar, &m, &k, A, &lda, Q, &ldq, dummy);
+
+    // Take the current time for use with timing dorg2r
+    gettimeofday(&tp, NULL);
+    elapsed_refL=-((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
+
+    dhseqr_ref_(&sChar, &iChar, &n, &ilo, &ihi, Q, &n, wr, wi, A, &n, work, &lwork, &info);
+
+    gettimeofday(&tp, NULL);
+    elapsed_refL+=((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
+
+    printf("Ref: %10.10e\n", elapsed_refL);
+    free(Q);
+    free(As);
     free(A);
-    free(B);
-    free(Zt);
-    free(ZT);
-    free(rhs);
-    free(ans);
-    return 0;
+    free(tau);
+    free(work);
+    free(T);
 }
