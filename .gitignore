@@ -304,3 +304,6 @@ TSWLatexianTemp*
 usingTlapack.pdf
 # Don't publish make.inc
 make.inc
+# Exclude exe files
+*.exe
+*.o
