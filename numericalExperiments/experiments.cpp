@@ -18,6 +18,9 @@
 #include <tlapack/lapack/multishift_qr.hpp>
 #include <sys/time.h>
 
+// multiprecision
+#include <tlapack/plugins/mpreal.hpp>
+
 // Helper function to more easily grab the current time
 // used to facilitate timing executions
 // Stolen from: https://stackoverflow.com/a/17440673 as well as previous C projects.
@@ -117,6 +120,43 @@ int main( int argc, char **argv)
     \**********************************************************************************************/
     std::cout << "Double precision" << std::endl;
     computeTimes<legacyMatrix<double,std::size_t,Layout::ColMajor>>(n);
-    // Calling LAPACK HSEQR
-    // Trying MPFR
+    /**********************************************************************************************\
+    |* MPFR section                                                                               *|
+    \**********************************************************************************************/
+    if (n <= 100) {
+        std::cout << "MPFR" << std::endl;
+        computeTimes<legacyMatrix<mpfr::mpreal,std::size_t,Layout::ColMajor>>(n);
+    }
+    /**********************************************************************************************\
+    |* Multishift QR (normal <T>LAPACK section                                                    *|
+    \**********************************************************************************************/
+    std::cout << "Multishift QR" << std::endl;
+    Create<legacyMatrix<double,std::size_t,Layout::ColMajor>> new_matrix;
+    std::vector<double> H_; auto H = new_matrix( H_, n, n);
+    std::vector<double> Z_; auto Z = new_matrix( Z_, n, n);
+    std::vector<std::complex<double>> s(n);
+    rand_generator gen;
+    std::size_t seed = 17519;
+    gen.seed(seed);
+    for(std::size_t i = 0; i < n; i++) {
+        for(std::size_t j = 0; j < n; j++) {
+            double val = rand_helper<double>(gen);
+            H(i,j) = val; 
+        }
+    }
+    std::vector<double> tau1(n);
+    double zeroT = 0;
+    double zero = 0;
+    gehrd(0, n, H, tau1);
+    lacpy(Uplo::General, H, Z);
+    unghr(0, n, Z, tau1);
+    std::size_t ilo = 0;
+    std::size_t igh = n;
+    for (std::size_t i = 1; i < n; i++)
+        for (std::size_t j = 0; j < i - 1; j++)
+            H(i,j) = zeroT;
+    auto time = -getTime();
+    auto retCode = multishift_qr(true, true, 0, n, H, s, Z);
+    time += getTime();
+    std::cout << "M:" << time << std::endl;
 }

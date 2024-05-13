@@ -19,15 +19,15 @@
     \begin{frame}
         \frametitle{Developing for \tla}
         % This will serve as a reminder slide for the users mostly to draw attention to the templating behavior
-        As was said before, the codebase for \tla is written in header files. This allows us to 
+        As was said before, the codebase for \tla\, is written in header files. This allows us to 
         take advantage of templates!
     \end{frame}
     \section{My project within \tla}
     \begin{frame}
         \frametitle{My project within \tla}
-        Discuss how I wrote the code for 
         I worked on some software that was for a fork of \tla. The code can be found here: 
-        \url{https://github.com/jprhyne/tlapack/tree/hqr}.
+        \url{https://github.com/jprhyne/tlapack/tree/hqr}, which was investigating porting EISPACK hqr
+        into the \tla framework. 
     \end{frame}
     \begin{frame}
         \frametitle{My project within \tla}
@@ -91,16 +91,25 @@
         \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfDouble.pdf}
     \end{frame}
     \begin{frame}
+        \frametitle{Timing of my project}
+        Using multi precision was also just a drag and drop!
+        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackTimeMPFR.pdf}
+        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfMPFR.pdf}
+    \end{frame}
+    \iffalse
+    \begin{frame}
         \frametitle{Comparing EISPACK to my C++ implementation}
         % This is comparing the results of the C++ and Fortran implementations There is a large difference in execution times. This is something to note.
         \includegraphics[width=\textwidth]{numericalExperiments/combinedTimeResultsAll.pdf}
     \end{frame}
+    \fi
     \section{Differing precisions}
     \begin{frame}
         \frametitle{Differing precisions}
         Some users already use the ease of the templating to use non-standard precisions. For example, this
         user was testing 8-bit floating point arithmetic, and only had to change how data was declared.
         \url{https://github.com/SudhanvaKulkarni123/tlapack}
-        % Will try to get some more stuff for this section, but no guarantees
+        % I could not get this working as there are compiler errors pointing to their plugin file, and I'm not
+        % an expert when it comes to C++ nor eigen, so I did not figure out if it's an error on my side or not
     \end{frame}
 \end{document}
