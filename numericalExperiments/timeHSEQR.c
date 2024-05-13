@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
 
     // Dummy value that is used when calling fortran
     // functions that take characters from C
+    // This is needed for AOCL calls 
     size_t dummy = 0;
 
     bool timesOnly = false;
@@ -86,6 +87,9 @@ int main(int argc, char *argv[]) {
     normA = sqrt(normA);
     int ilo = 1;
     int ihi = n;
+    /*********************************************************************************************\
+    |* Referece Calls                                                                            *|
+    \*********************************************************************************************/
     // Create the work array to do workspace queries
     work = (double *) malloc(sizeof(double));
     // Determine how much workspace is needed for our operations
@@ -93,33 +97,65 @@ int main(int argc, char *argv[]) {
     dgehrd_(&n, &ilo, &ihi, A, &lda, tau, work, &workQuery, &info );
     lwork = work[0];
 
-    dhseqr_ref_(&sChar, &iChar, &n, &ilo, &ihi, A, &n, wr, wi, Q, &n, work, &workQuery, &info);
+    dhseqr_ref_(&sChar, &iChar, &n, &ilo, &ihi, A, &n, wr, wi, Q, &n, work, &workQuery, &info, dummy, dummy);
     if (work[0] > lwork)
         lwork = work[0];
 
     // reallocate work to be of the right size
     work = (double *) realloc(work, lwork * sizeof(double));
 
-    // Call dgeqrf first
     dgehrd_(&n, &ilo, &ihi, A, &lda, tau, work, &lwork, &info );
 
-    // Copy A into Q for use with dorgkr
+    // Copy A into Q
     dlacpy_(&aChar, &m, &k, A, &lda, Q, &ldq, dummy);
 
     // Take the current time for use with timing dorg2r
     gettimeofday(&tp, NULL);
     elapsed_refL=-((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
 
-    dhseqr_ref_(&sChar, &iChar, &n, &ilo, &ihi, Q, &n, wr, wi, A, &n, work, &lwork, &info);
+    dhseqr_ref_(&sChar, &iChar, &n, &ilo, &ihi, Q, &n, wr, wi, A, &n, work, &lwork, &info, dummy, dummy);
 
     gettimeofday(&tp, NULL);
     elapsed_refL+=((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
 
     printf("Ref: %10.10e\n", elapsed_refL);
+    /*********************************************************************************************\
+    |* AOCL Calls                                                                                *|
+    \*********************************************************************************************/
+    dlacpy_(&aChar, &m, &k, A, &lda, As, &lda, dummy);
+    // Determine how much workspace is needed for our operations
+    // Check dgeqrf first
+    dgehrd_(&n, &ilo, &ihi, A, &lda, tau, work, &workQuery, &info );
+    lwork = work[0];
+
+    dhseqr_(&sChar, &iChar, &n, &ilo, &ihi, A, &n, wr, wi, Q, &n, work, &workQuery, &info, dummy, dummy);
+    if (work[0] > lwork)
+        lwork = work[0];
+
+    // reallocate work to be of the right size
+    work = (double *) realloc(work, lwork * sizeof(double));
+
+    dgehrd_(&n, &ilo, &ihi, A, &lda, tau, work, &lwork, &info );
+
+    // Copy A into Q
+    dlacpy_(&aChar, &m, &k, A, &lda, Q, &ldq, dummy);
+
+    // Take the current time for use with timing dorg2r
+    gettimeofday(&tp, NULL);
+    elapsed_refL=-((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
+
+    dhseqr_(&sChar, &iChar, &n, &ilo, &ihi, Q, &n, wr, wi, A, &n, work, &lwork, &info, dummy, dummy);
+
+    gettimeofday(&tp, NULL);
+    elapsed_refL+=((double)tp.tv_sec+(1.e-6)*tp.tv_usec);
+
+    printf("Opt: %10.10e\n", elapsed_refL);
     free(Q);
     free(As);
     free(A);
     free(tau);
+    free(wr);
+    free(wi);
     free(work);
     free(T);
 }

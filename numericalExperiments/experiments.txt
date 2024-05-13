@@ -1,821 +1,824 @@
-make: 'experiments.exe' is up to date.
+make -C hqr
+make[1]: Entering directory '/home/lidesia/Documents/CUDenver/RAShip/gitRepos/SIAMLA24Tutorial/numericalExperiments/hqr'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/lidesia/Documents/CUDenver/RAShip/gitRepos/SIAMLA24Tutorial/numericalExperiments/hqr'
+n=10
+Running hqr 10 times
+Single precision
+TQE:5.60284e-05
+TE:3.50475e-05
+E:3.00407e-05
+Double precision
+TQE:6.60419e-05
+TE:4.19617e-05
+E:3.69549e-05
+Single precision
+TQE:5.4121e-05
+TE:3.50475e-05
+E:3.00407e-05
+Double precision
+TQE:6.29425e-05
+TE:4.1008e-05
+E:3.71933e-05
+Single precision
+TQE:5.4121e-05
+TE:3.50475e-05
+E:3.00407e-05
+Double precision
+TQE:6.60419e-05
+TE:4.1008e-05
+E:3.69549e-05
+Single precision
+TQE:5.91278e-05
+TE:3.40939e-05
+E:2.90871e-05
+Double precision
+TQE:6.50883e-05
+TE:4.19617e-05
+E:3.69549e-05
+Single precision
+TQE:5.79357e-05
+TE:3.40939e-05
+E:2.90871e-05
+Double precision
+TQE:6.38962e-05
+TE:3.98159e-05
+E:3.60012e-05
+Single precision
+TQE:5.60284e-05
+TE:3.50475e-05
+E:2.98023e-05
+Double precision
+TQE:6.41346e-05
+TE:4.19617e-05
+E:3.71933e-05
+Single precision
+TQE:6.29425e-05
+TE:3.40939e-05
+E:2.90871e-05
+Double precision
+TQE:6.50883e-05
+TE:4.19617e-05
+E:3.69549e-05
+Single precision
+TQE:5.38826e-05
+TE:3.50475e-05
+E:3.00407e-05
+Double precision
+TQE:6.29425e-05
+TE:4.1008e-05
+E:3.69549e-05
+Single precision
+TQE:6.10352e-05
+TE:3.50475e-05
+E:3.88622e-05
+Double precision
+TQE:6.50883e-05
+TE:4.1008e-05
+E:3.69549e-05
+Single precision
+TQE:6.00815e-05
+TE:3.50475e-05
+E:3.00407e-05
+Double precision
+TQE:6.38962e-05
+TE:4.1008e-05
+E:3.60012e-05
+n=20
+Running hqr 10 times
+Single precision
+TQE:0.000437021
+TE:0.000206947
+E:0.000169992
+Double precision
+TQE:0.000398874
+TE:0.000232935
+E:0.00019598
+Single precision
+TQE:0.000350952
+TE:0.000207901
+E:0.0001719
+Double precision
+TQE:0.000399828
+TE:0.000236034
+E:0.000201941
+Single precision
+TQE:0.000353813
+TE:0.000210047
+E:0.0001719
+Double precision
+TQE:0.000407934
+TE:0.000236988
+E:0.000197887
+Single precision
+TQE:0.000353813
+TE:0.000211
+E:0.000173092
+Double precision
+TQE:0.000401974
+TE:0.000257015
+E:0.000209093
+Single precision
+TQE:0.000353813
+TE:0.000208139
+E:0.000171185
+Double precision
+TQE:0.000399113
+TE:0.000235081
+E:0.00019598
+Single precision
+TQE:0.000364065
+TE:0.000211
+E:0.000173807
+Double precision
+TQE:0.000408888
+TE:0.000241995
+E:0.000201941
+Single precision
+TQE:0.000361919
+TE:0.000210047
+E:0.000172853
+Double precision
+TQE:0.000401974
+TE:0.000236034
+E:0.000196934
+Single precision
+TQE:0.000357151
+TE:0.000211954
+E:0.000174046
+Double precision
+TQE:0.000411034
+TE:0.000250101
+E:0.00019908
+Single precision
+TQE:0.000353098
+TE:0.000209093
+E:0.0001719
+Double precision
+TQE:0.000402927
+TE:0.000236034
+E:0.000197887
+Single precision
+TQE:0.000354052
+TE:0.000210047
+E:0.000173092
+Double precision
+TQE:0.000399828
+TE:0.000236034
+E:0.000196934
+n=30
+Running hqr 10 times
+Single precision
+TQE:0.00103617
+TE:0.000591993
+E:0.000476122
+Double precision
+TQE:0.00130701
+TE:0.000756979
+E:0.000591993
+Single precision
+TQE:0.00105405
+TE:0.000603914
+E:0.000473022
+Double precision
+TQE:0.00130892
+TE:0.000740051
+E:0.000617027
+Single precision
+TQE:0.00107813
+TE:0.000604868
+E:0.00047493
+Double precision
+TQE:0.00132012
+TE:0.000747919
+E:0.000583887
+Single precision
+TQE:0.00107121
+TE:0.000597954
+E:0.000477076
+Double precision
+TQE:0.00133109
+TE:0.000743866
+E:0.000583887
+Single precision
+TQE:0.0011909
+TE:0.000601053
+E:0.000477076
+Double precision
+TQE:0.00133514
+TE:0.000741005
+E:0.000586987
+Single precision
+TQE:0.0010891
+TE:0.000627995
+E:0.000497103
+Double precision
+TQE:0.00133181
+TE:0.000745058
+E:0.000589132
+Single precision
+TQE:0.0010829
+TE:0.000620127
+E:0.000512838
+Double precision
+TQE:0.00132012
+TE:0.000768185
+E:0.000603914
+Single precision
+TQE:0.00107193
+TE:0.000601053
+E:0.000519037
+Double precision
+TQE:0.00134802
+TE:0.000762939
+E:0.000618935
+Single precision
+TQE:0.00106096
+TE:0.00060606
+E:0.000483036
+Double precision
+TQE:0.00131488
+TE:0.000760078
+E:0.000589132
+Single precision
+TQE:0.00107384
+TE:0.000598192
+E:0.00048399
+Double precision
+TQE:0.00132108
+TE:0.000763178
+E:0.000597954
+n=40
+Running hqr 10 times
+Single precision
+TQE:0.00235605
+TE:0.00133991
+E:0.000993967
+Double precision
+TQE:0.00329399
+TE:0.00183105
+E:0.00138783
+Single precision
+TQE:0.00240517
+TE:0.00130582
+E:0.000994205
+Double precision
+TQE:0.00328112
+TE:0.00180483
+E:0.00143003
+Single precision
+TQE:0.00235009
+TE:0.001297
+E:0.0010159
+Double precision
+TQE:0.00332093
+TE:0.00183105
+E:0.00138497
+Single precision
+TQE:0.00239515
+TE:0.00134802
+E:0.00102186
+Double precision
+TQE:0.00331211
+TE:0.00181484
+E:0.00139999
+Single precision
+TQE:0.00235987
+TE:0.00130415
+E:0.000998974
+Double precision
+TQE:0.00336695
+TE:0.00181508
+E:0.00139999
+Single precision
+TQE:0.00236487
+TE:0.00130916
+E:0.00100422
+Double precision
+TQE:0.00327802
+TE:0.00180507
+E:0.00142097
+Single precision
+TQE:0.00237107
+TE:0.00131893
+E:0.0010221
+Double precision
+TQE:0.00327992
+TE:0.00181389
+E:0.00138211
+Single precision
+TQE:0.00239396
+TE:0.00132704
+E:0.00101614
+Double precision
+TQE:0.00332594
+TE:0.00180387
+E:0.00140285
+Single precision
+TQE:0.00237679
+TE:0.00130486
+E:0.00101304
+Double precision
+TQE:0.00333905
+TE:0.00180507
+E:0.00138783
+Single precision
+TQE:0.00233698
+TE:0.00130296
+E:0.000993013
+Double precision
+TQE:0.00329113
+TE:0.00183892
+E:0.00138187
+n=50
+Running hqr 10 times
+Single precision
+TQE:0.00468397
+TE:0.00255013
+E:0.00191402
+Double precision
+TQE:0.00580215
+TE:0.00313115
+E:0.00237703
+Single precision
+TQE:0.00471616
+TE:0.00257206
+E:0.00190902
+Double precision
+TQE:0.00576901
+TE:0.00314784
+E:0.00234699
+Single precision
+TQE:0.00475502
+TE:0.00254107
+E:0.0018959
+Double precision
+TQE:0.00580907
+TE:0.00314593
+E:0.00233388
+Single precision
+TQE:0.00469494
+TE:0.00257087
+E:0.00190997
+Double precision
+TQE:0.00585294
+TE:0.00318193
+E:0.00237107
+Single precision
+TQE:0.00479889
+TE:0.0026021
+E:0.00192904
+Double precision
+TQE:0.00575995
+TE:0.00313687
+E:0.00233698
+Single precision
+TQE:0.00477195
+TE:0.00256515
+E:0.00190902
+Double precision
+TQE:0.00580192
+TE:0.00313306
+E:0.00240207
+Single precision
+TQE:0.00472093
+TE:0.00255299
+E:0.00190496
+Double precision
+TQE:0.00586295
+TE:0.00320077
+E:0.00239491
+Single precision
+TQE:0.00475192
+TE:0.00257301
+E:0.00192714
+Double precision
+TQE:0.0057919
+TE:0.00315499
+E:0.00233912
+Single precision
+TQE:0.00481701
+TE:0.0025878
+E:0.00193095
+Double precision
+TQE:0.00589609
+TE:0.00321507
+E:0.00238299
+Single precision
+TQE:0.00475097
+TE:0.00259399
+E:0.00191593
+Double precision
+TQE:0.00586104
+TE:0.00314617
+E:0.00235915
+n=60
+Running hqr 10 times
+Single precision
+TQE:0.00765085
+TE:0.00410104
+E:0.00306702
+Double precision
+TQE:0.0101149
+TE:0.00540018
+E:0.00395393
+Single precision
+TQE:0.00765705
+TE:0.00410604
+E:0.00307393
+Double precision
+TQE:0.0100782
+TE:0.00536895
+E:0.00395894
+Single precision
+TQE:0.00774384
+TE:0.00408101
+E:0.00301194
+Double precision
+TQE:0.010093
+TE:0.00541687
+E:0.00400591
+Single precision
+TQE:0.00760102
+TE:0.00444698
+E:0.00314403
+Double precision
+TQE:0.012152
+TE:0.00562692
+E:0.00415707
+Single precision
+TQE:0.00789905
+TE:0.00415587
+E:0.00353599
+Double precision
+TQE:0.010098
+TE:0.005404
+E:0.00433397
+Single precision
+TQE:0.00766706
+TE:0.00412107
+E:0.00308895
+Double precision
+TQE:0.010211
+TE:0.00541401
+E:0.00395608
+Single precision
+TQE:0.00767398
+TE:0.00409698
+E:0.00309992
+Double precision
+TQE:0.0101511
+TE:0.00542212
+E:0.00397491
+Single precision
+TQE:0.00773096
+TE:0.00408602
+E:0.003093
+Double precision
+TQE:0.010371
+TE:0.00555611
+E:0.00411081
+Single precision
+TQE:0.0076251
+TE:0.004107
+E:0.00304389
+Double precision
+TQE:0.0100482
+TE:0.00535703
+E:0.00396299
+Single precision
+TQE:0.00877285
+TE:0.00576901
+E:0.00354815
+Double precision
+TQE:0.0102799
+TE:0.00541592
+E:0.00395584
+n=70
+Running hqr 10 times
+Single precision
+TQE:0.013396
+TE:0.00711703
+E:0.00524807
+Double precision
+TQE:0.0169899
+TE:0.00910497
+E:0.00680304
+Single precision
+TQE:0.0148139
+TE:0.0070312
+E:0.00518203
+Double precision
+TQE:0.01689
+TE:0.00900602
+E:0.00675297
+Single precision
+TQE:0.013304
+TE:0.00709009
+E:0.00517821
+Double precision
+TQE:0.0167332
+TE:0.00889611
+E:0.00655079
+Single precision
+TQE:0.0132351
+TE:0.00708914
+E:0.00518894
+Double precision
+TQE:0.0167971
+TE:0.00891995
+E:0.00655103
+Single precision
+TQE:0.0133941
+TE:0.00716114
+E:0.00522089
+Double precision
+TQE:0.016767
+TE:0.00893712
+E:0.00659418
+Single precision
+TQE:0.0132151
+TE:0.00703597
+E:0.00522518
+Double precision
+TQE:0.016865
+TE:0.00888491
+E:0.00654602
+Single precision
+TQE:0.0132802
+TE:0.00708985
+E:0.00518012
+Double precision
+TQE:0.0167851
+TE:0.00885296
+E:0.00654507
+Single precision
+TQE:0.013217
+TE:0.00708795
+E:0.00515699
+Double precision
+TQE:0.0168161
+TE:0.00889802
+E:0.00658822
+Single precision
+TQE:0.0133629
+TE:0.00721192
+E:0.00524306
+Double precision
+TQE:0.0169501
+TE:0.00924993
+E:0.00675201
+Single precision
+TQE:0.0135942
+TE:0.00710988
+E:0.00521111
+Double precision
+TQE:0.0169501
+TE:0.00916195
+E:0.00681496
+n=80
+Running hqr 10 times
+Single precision
+TQE:0.018121
+TE:0.00962496
+E:0.00714612
+Double precision
+TQE:0.023206
+TE:0.0144141
+E:0.00990891
+Single precision
+TQE:0.0182302
+TE:0.00957394
+E:0.00706506
+Double precision
+TQE:0.0231609
+TE:0.0124602
+E:0.00914192
+Single precision
+TQE:0.018065
+TE:0.00962591
+E:0.0071311
+Double precision
+TQE:0.0232968
+TE:0.012522
+E:0.00907302
+Single precision
+TQE:0.0183301
+TE:0.00973511
+E:0.00718212
+Double precision
+TQE:0.0232379
+TE:0.0124159
+E:0.00923204
+Single precision
+TQE:0.019676
+TE:0.009583
+E:0.00710702
+Double precision
+TQE:0.0234449
+TE:0.0123401
+E:0.00905013
+Single precision
+TQE:0.0181081
+TE:0.00951195
+E:0.00706196
+Double precision
+TQE:0.023237
+TE:0.01215
+E:0.00890112
+Single precision
+TQE:0.0180671
+TE:0.00955915
+E:0.00718594
+Double precision
+TQE:0.0233171
+TE:0.0122142
+E:0.00902009
+Single precision
+TQE:0.0183539
+TE:0.00956202
+E:0.00723219
+Double precision
+TQE:0.023587
+TE:0.012536
+E:0.00904012
+Single precision
+TQE:0.0180881
+TE:0.00955987
+E:0.00707507
+Double precision
+TQE:0.0231071
+TE:0.0123811
+E:0.00891089
+Single precision
+TQE:0.018209
+TE:0.00952601
+E:0.00735593
+Double precision
+TQE:0.023561
+TE:0.0122981
+E:0.00905085
+n=90
+Running hqr 10 times
+Single precision
+TQE:0.0258679
+TE:0.0135548
+E:0.00966191
+Double precision
+TQE:0.0322158
+TE:0.016824
+E:0.0120859
+Single precision
+TQE:0.0262489
+TE:0.0137641
+E:0.00969601
+Double precision
+TQE:0.0331459
+TE:0.0169711
+E:0.012224
+Single precision
+TQE:0.025722
+TE:0.0135212
+E:0.00966907
+Double precision
+TQE:0.031904
+TE:0.0167761
+E:0.0120111
+Single precision
+TQE:0.0258
+TE:0.0136058
+E:0.00964808
+Double precision
+TQE:0.032475
+TE:0.017014
+E:0.0121629
+Single precision
+TQE:0.0256739
+TE:0.0135391
+E:0.00960302
+Double precision
+TQE:0.0320239
+TE:0.0168431
+E:0.0120318
+Single precision
+TQE:0.0259318
+TE:0.013597
+E:0.00967407
+Double precision
+TQE:0.0322931
+TE:0.017015
+E:0.012198
+Single precision
+TQE:0.0261269
+TE:0.0135701
+E:0.00962901
+Double precision
+TQE:0.032198
+TE:0.01703
+E:0.0121448
+Single precision
+TQE:0.025898
+TE:0.0136142
+E:0.00965309
+Double precision
+TQE:0.032397
+TE:0.0169601
+E:0.0123341
+Single precision
+TQE:0.025799
+TE:0.013519
+E:0.00959706
+Double precision
+TQE:0.0341949
+TE:0.017282
+E:0.012466
+Single precision
+TQE:0.0258701
+TE:0.0135522
+E:0.00958991
+Double precision
+TQE:0.032258
+TE:0.016813
+E:0.012207
 n=100
 Running hqr 10 times
 Single precision
-TQE:0.0377021
-TE:0.0198131
-E:0.014394
-Double precision
-TQE:0.0449212
-TE:0.0236681
-E:0.017236
-Single precision
-TQE:0.037781
-TE:0.020031
-E:0.0147901
-Double precision
-TQE:0.0451488
-TE:0.025331
-E:0.0169482
-Single precision
-TQE:0.037653
-TE:0.0197291
-E:0.0144219
-Double precision
-TQE:0.0451291
-TE:0.0236471
-E:0.0168819
-Single precision
-TQE:0.0380981
-TE:0.019819
-E:0.0145621
-Double precision
-TQE:0.0453432
-TE:0.023767
-E:0.0170238
-Single precision
-TQE:0.0382011
-TE:0.0197768
-E:0.014513
-Double precision
-TQE:0.0451331
-TE:0.0236101
-E:0.0171099
-Single precision
-TQE:0.0379288
-TE:0.0197511
-E:0.014441
-Double precision
-TQE:0.045351
-TE:0.0234849
-E:0.0169029
-Single precision
-TQE:0.038415
-TE:0.019639
-E:0.0143862
-Double precision
-TQE:0.0451159
-TE:0.023608
-E:0.0170681
-Single precision
-TQE:0.039341
-TE:0.01967
-E:0.0144291
-Double precision
-TQE:0.044961
-TE:0.023422
-E:0.016849
-Single precision
-TQE:0.0378768
-TE:0.0200758
-E:0.0144749
-Double precision
-TQE:0.0453901
-TE:0.0234768
-E:0.016902
-Single precision
-TQE:0.0380569
-TE:0.0199149
-E:0.0146101
-Double precision
-TQE:0.045265
-TE:0.0237622
-E:0.0170901
-n=200
-Running hqr 10 times
-Single precision
-TQE:0.286474
-TE:0.148564
-E:0.103171
-Double precision
-TQE:0.360026
-TE:0.184351
-E:0.129616
-Single precision
-TQE:0.286502
-TE:0.145934
-E:0.102651
-Double precision
-TQE:0.361605
-TE:0.193214
-E:0.140447
-Single precision
-TQE:0.287248
-TE:0.146858
-E:0.103514
-Double precision
-TQE:0.371668
-TE:0.185155
-E:0.130953
-Single precision
-TQE:0.287342
-TE:0.145892
-E:0.102597
-Double precision
-TQE:0.365702
-TE:0.184696
-E:0.129799
-Single precision
-TQE:0.286913
-TE:0.146115
-E:0.104437
-Double precision
-TQE:0.362433
-TE:0.184669
-E:0.12983
-Single precision
-TQE:0.290106
-TE:0.147019
-E:0.103249
-Double precision
-TQE:0.364106
-TE:0.184235
-E:0.129145
-Single precision
-TQE:0.306501
-TE:0.155588
-E:0.105532
-Double precision
-TQE:0.368923
-TE:0.189231
-E:0.132367
-Single precision
-TQE:0.298435
-TE:0.152313
-E:0.10526
-Double precision
-TQE:0.367604
-TE:0.187067
-E:0.131179
-Single precision
-TQE:0.29242
-TE:0.1518
-E:0.105705
-Double precision
-TQE:0.367736
-TE:0.185344
-E:0.133088
-Single precision
-TQE:0.288764
-TE:0.148583
-E:0.103555
-Double precision
-TQE:0.37174
-TE:0.198709
-E:0.131881
-n=300
-Running hqr 10 times
-Single precision
-TQE:0.877192
-TE:0.44137
-E:0.314017
-Double precision
-TQE:1.20785
-TE:0.606108
-E:0.419802
-Single precision
-TQE:0.878316
-TE:0.444368
-E:0.312174
-Double precision
-TQE:1.19818
-TE:0.608731
-E:0.420415
-Single precision
-TQE:0.872896
-TE:0.441664
-E:0.312368
-Double precision
-TQE:1.1926
-TE:0.60795
-E:0.416133
-Single precision
-TQE:0.866868
-TE:0.440675
-E:0.310945
-Double precision
-TQE:1.18553
-TE:0.59832
-E:0.41632
-Single precision
-TQE:0.868084
-TE:0.440145
-E:0.313419
-Double precision
-TQE:1.23495
-TE:0.620124
-E:0.431522
-Single precision
-TQE:0.89958
-TE:0.438661
-E:0.313577
-Double precision
-TQE:1.20055
-TE:0.646414
-E:0.484388
-Single precision
-TQE:0.889543
-TE:0.44479
-E:0.315866
-Double precision
-TQE:1.20991
-TE:0.602363
-E:0.422675
-Single precision
-TQE:0.876889
-TE:0.440558
-E:0.332634
-Double precision
-TQE:1.246
-TE:0.612742
-E:0.421433
-Single precision
-TQE:0.870292
-TE:0.457205
-E:0.337947
-Double precision
-TQE:1.19871
-TE:0.605878
-E:0.419945
-Single precision
-TQE:0.883979
-TE:0.442303
-E:0.311408
-Double precision
-TQE:1.19333
-TE:0.601624
-E:0.41692
-n=400
-Running hqr 10 times
-Single precision
-TQE:1.90824
-TE:0.99526
-E:0.674011
-Double precision
-TQE:2.8157
-TE:1.44397
-E:0.973351
-Single precision
-TQE:1.96094
-TE:0.958517
-E:0.668571
-Double precision
-TQE:2.828
-TE:1.42907
-E:0.979845
-Single precision
-TQE:1.91098
-TE:0.976723
-E:0.66939
-Double precision
-TQE:2.82195
-TE:1.41817
-E:0.976035
-Single precision
-TQE:1.9047
-TE:0.960664
-E:0.672779
-Double precision
-TQE:2.82006
-TE:1.43061
-E:0.975219
-Single precision
-TQE:1.91151
-TE:0.956596
-E:0.668761
-Double precision
-TQE:2.81392
-TE:1.43035
-E:0.985768
-Single precision
-TQE:1.91937
-TE:0.986686
-E:0.680638
-Double precision
-TQE:2.83852
-TE:1.43516
-E:0.989201
-Single precision
-TQE:1.91589
-TE:0.973972
-E:0.669201
-Double precision
-TQE:2.82506
-TE:1.44268
-E:0.998616
-Single precision
-TQE:1.97012
-TE:0.998339
-E:0.69027
-Double precision
-TQE:2.81891
-TE:1.41805
-E:0.978118
-Single precision
-TQE:1.90191
-TE:0.956607
-E:0.666427
-Double precision
-TQE:2.8132
-TE:1.42002
-E:0.978957
-Single precision
-TQE:1.90864
-TE:0.962368
-E:0.675622
-Double precision
-TQE:2.83241
-TE:1.42927
-E:0.979792
-n=500
-Running hqr 10 times
-Single precision
-TQE:4.38725
-TE:2.20483
-E:1.54884
-Double precision
-TQE:5.76141
-TE:2.87578
-E:1.95355
-Single precision
-TQE:4.45892
-TE:2.20063
-E:1.54064
-Double precision
-TQE:5.66447
-TE:2.79288
-E:1.93318
-Single precision
-TQE:4.37825
-TE:2.21355
-E:1.537
-Double precision
-TQE:5.58168
-TE:2.80696
-E:1.95246
-Single precision
-TQE:4.3399
-TE:2.19527
-E:1.52791
-Double precision
-TQE:5.57437
-TE:2.81529
-E:1.94608
-Single precision
-TQE:4.3432
-TE:2.19684
-E:1.54059
-Double precision
-TQE:5.57829
-TE:2.79131
-E:1.93911
-Single precision
-TQE:4.3517
-TE:2.20255
-E:1.5421
-Double precision
-TQE:5.56855
-TE:2.80694
-E:1.94104
-Single precision
-TQE:4.40232
-TE:2.19581
-E:1.56458
-Double precision
-TQE:5.65704
-TE:2.85217
-E:1.93067
-Single precision
-TQE:4.37035
-TE:2.20288
-E:1.55221
-Double precision
-TQE:5.55184
-TE:2.80112
-E:1.95505
-Single precision
-TQE:4.35709
-TE:2.19943
-E:1.54966
-Double precision
-TQE:5.54577
-TE:2.80661
-E:1.95805
-Single precision
-TQE:4.35724
-TE:2.19976
-E:1.55245
-Double precision
-TQE:5.61148
-TE:2.79815
-E:1.93809
-n=600
-Running hqr 10 times
-Single precision
-TQE:6.83233
-TE:3.46794
-E:2.39518
-Double precision
-TQE:9.45326
-TE:4.69128
-E:3.20703
-Single precision
-TQE:6.84271
-TE:3.43777
-E:2.40018
-Double precision
-TQE:9.4331
-TE:4.74721
-E:3.22402
-Single precision
-TQE:6.86183
-TE:3.45707
-E:2.37726
-Double precision
-TQE:9.35791
-TE:4.70609
-E:3.24253
-Single precision
-TQE:6.86564
-TE:3.44134
-E:2.3699
-Double precision
-TQE:9.3533
-TE:4.73908
-E:3.24875
-Single precision
-TQE:6.86859
-TE:3.44403
-E:2.37985
-Double precision
-TQE:9.35092
-TE:4.69148
-E:3.22655
-Single precision
-TQE:6.86592
-TE:3.43747
-E:2.37724
-Double precision
-TQE:9.34063
-TE:4.68262
-E:3.20753
-Single precision
-TQE:6.88535
-TE:3.48636
-E:2.38813
-Double precision
-TQE:9.39451
-TE:4.70951
-E:3.24764
-Single precision
-TQE:6.83712
-TE:3.4552
-E:2.3724
-Double precision
-TQE:9.41566
-TE:4.77561
-E:3.25689
-Single precision
-TQE:6.84893
-TE:3.44518
-E:2.35259
-Double precision
-TQE:9.48636
-TE:4.70883
-E:3.21209
-Single precision
-TQE:6.89401
-TE:3.42739
-E:2.36571
-Double precision
-TQE:9.32704
-TE:4.69811
-E:3.20845
-n=700
-Running hqr 10 times
-Single precision
-TQE:9.82398
-TE:4.9968
-E:3.51504
-Double precision
-TQE:14.8087
-TE:7.43065
-E:5.13119
-Single precision
-TQE:9.80019
-TE:4.93682
-E:3.53282
-Double precision
-TQE:14.8405
-TE:7.41222
-E:5.11518
-Single precision
-TQE:9.80937
-TE:4.98269
-E:3.54021
-Double precision
-TQE:15.0385
-TE:7.44479
-E:5.12521
-Single precision
-TQE:9.88461
-TE:4.90271
-E:3.5346
-Double precision
-TQE:14.8967
-TE:7.44169
-E:5.10138
-Single precision
-TQE:9.87174
-TE:4.92777
-E:3.53928
-Double precision
-TQE:14.8011
-TE:7.57901
-E:5.12558
-Single precision
-TQE:9.78432
-TE:4.90928
-E:3.49887
-Double precision
-TQE:14.8732
-TE:7.41505
-E:5.10424
-Single precision
-TQE:9.90413
-TE:4.92709
-E:3.51183
-Double precision
-TQE:14.8017
-TE:7.46542
-E:5.16702
-Single precision
-TQE:9.8637
-TE:4.90853
-E:3.5445
-Double precision
-TQE:14.8609
-TE:7.45592
-E:5.1359
-Single precision
-TQE:9.7932
-TE:4.89352
-E:3.51745
-Double precision
-TQE:14.7359
-TE:7.41052
-E:5.17698
-Single precision
-TQE:9.85471
-TE:4.95612
-E:3.50906
-Double precision
-TQE:15.14
-TE:7.75889
-E:5.25447
-n=800
-Running hqr 10 times
-Single precision
-TQE:15.7578
-TE:7.88556
-E:5.53761
-Double precision
-TQE:21.1784
-TE:10.7007
-E:7.21911
-Single precision
-TQE:15.8687
-TE:7.98729
-E:5.67871
-Double precision
-TQE:21.362
-TE:11.2282
-E:7.2484
-Single precision
-TQE:15.7925
-TE:8.41249
-E:5.76174
-Double precision
-TQE:21.275
-TE:10.5822
-E:7.12518
-Single precision
-TQE:15.6611
-TE:7.83512
-E:5.47751
-Double precision
-TQE:20.7494
-TE:10.3435
-E:7.03743
-Single precision
-TQE:15.2271
-TE:7.86266
-E:5.48938
-Double precision
-TQE:20.6057
-TE:10.3848
-E:7.09905
-Single precision
-TQE:15.1673
-TE:7.60138
-E:5.32714
-Double precision
-TQE:21.0006
-TE:10.5493
-E:7.16575
-Single precision
-TQE:15.6207
-TE:7.81916
-E:5.48224
-Double precision
-TQE:20.9715
-TE:10.5596
-E:7.17353
-Single precision
-TQE:15.5879
-TE:7.8189
-E:5.47868
-Double precision
-TQE:20.9863
-TE:10.5821
-E:7.2624
-Single precision
-TQE:15.1407
-TE:7.70519
-E:5.42081
-Double precision
-TQE:20.7691
-TE:10.4888
-E:7.22541
-Single precision
-TQE:15.3669
-TE:7.67049
-E:5.3519
-Double precision
-TQE:20.6838
-TE:10.4195
-E:7.01919
-n=900
-Running hqr 10 times
-Single precision
-TQE:19.8366
-TE:10.0908
-E:7.50176
-Double precision
-TQE:30.4309
-TE:15.1143
-E:10.3787
-Single precision
-TQE:19.4848
-TE:9.78431
-E:7.12201
-Double precision
-TQE:30.2205
-TE:15.4667
-E:10.7872
-Single precision
-TQE:20.7063
-TE:10.3674
-E:7.50124
-Double precision
-TQE:31.8359
-TE:16.2738
-E:11.0048
-Single precision
-TQE:20.2215
-TE:10.0649
-E:7.37099
-Double precision
-TQE:31.3025
-TE:15.6236
-E:10.6586
-Single precision
-TQE:20.0754
-TE:10.1388
-E:7.28781
-Double precision
-TQE:31.1108
-TE:15.5558
-E:10.7614
-Single precision
-TQE:20.5273
-TE:10.1363
-E:7.35931
-Double precision
-TQE:31.3547
-TE:15.8436
-E:10.7682
-Single precision
-TQE:20.321
-TE:10.1582
-E:7.39953
-Double precision
-TQE:31.4247
-TE:15.7611
-E:10.7331
-Single precision
-TQE:20.8958
-TE:10.4182
-E:7.50223
-Double precision
-TQE:31.5751
-TE:15.7745
-E:10.7505
-Single precision
-TQE:20.5901
-TE:10.2729
-E:7.4209
-Double precision
-TQE:31.0265
-TE:15.4549
-E:10.5549
-Single precision
-TQE:19.9172
-TE:9.95678
-E:7.1943
-Double precision
-TQE:31.0019
-TE:15.4226
-E:10.714
-n=1000
-Running hqr 10 times
-Single precision
-TQE:30.0223
-TE:14.9692
-E:10.4421
-Double precision
-TQE:43.5272
-TE:22.0316
-E:15.0241
-Single precision
-TQE:30.791
-TE:15.4113
-E:10.7324
-Double precision
-TQE:44.0443
-TE:21.4454
-E:14.3051
-Single precision
-TQE:29.912
-TE:15.1224
-E:10.6284
-Double precision
-TQE:41.9912
-TE:21.1849
-E:14.3548
-Single precision
-TQE:30.1502
-TE:15.1132
-E:10.5434
-Double precision
-TQE:43.6728
-TE:21.8145
-E:15.0059
-Single precision
-TQE:31.7507
-TE:15.5701
-E:10.5396
-Double precision
-TQE:44.3716
-TE:22.1836
-E:15.1437
-Single precision
-TQE:31.0131
-TE:15.7248
-E:11.1131
-Double precision
-TQE:44.4413
-TE:22.3962
-E:15.5332
-Single precision
-TQE:31.7401
-TE:15.5474
-E:10.9275
-Double precision
-TQE:45.1146
-TE:22.6895
-E:15.7576
-Single precision
-TQE:31.1299
-TE:15.62
-E:10.7936
-Double precision
-TQE:45.3846
-TE:22.4824
-E:15.5267
-Single precision
-TQE:32.0841
-TE:16.0776
-E:11.113
-Double precision
-TQE:44.7085
-TE:22.8508
-E:15.5548
-Single precision
-TQE:31.8871
-TE:15.8415
-E:11.118
-Double precision
-TQE:45.4984
-TE:22.8988
-E:15.8271
+TQE:0.0358441
+TE:0.0188169
+E:0.0137391
+Double precision
+TQE:0.0430479
+TE:0.0239499
+E:0.0161099
+Single precision
+TQE:0.0359509
+TE:0.018868
+E:0.013855
+Double precision
+TQE:0.043287
+TE:0.0227039
+E:0.0162621
+Single precision
+TQE:0.036427
+TE:0.0190978
+E:0.0142319
+Double precision
+TQE:0.0439241
+TE:0.0230012
+E:0.0164039
+Single precision
+TQE:0.035816
+TE:0.0186529
+E:0.0138018
+Double precision
+TQE:0.0430691
+TE:0.0224161
+E:0.016155
+Single precision
+TQE:0.036221
+TE:0.019021
+E:0.0138409
+Double precision
+TQE:0.0459828
+TE:0.023149
+E:0.0164261
+Single precision
+TQE:0.0360322
+TE:0.0188501
+E:0.013767
+Double precision
+TQE:0.043493
+TE:0.022737
+E:0.016382
+Single precision
+TQE:0.0360119
+TE:0.018816
+E:0.0137861
+Double precision
+TQE:0.0429511
+TE:0.0225909
+E:0.016145
+Single precision
+TQE:0.0361779
+TE:0.0188241
+E:0.013787
+Double precision
+TQE:0.0435359
+TE:0.0228488
+E:0.0163169
+Single precision
+TQE:0.0363772
+TE:0.0187659
+E:0.0137811
+Double precision
+TQE:0.0434341
+TE:0.02338
+E:0.01688
+Single precision
+TQE:0.0362132
+TE:0.018919
+E:0.013865
+Double precision
+TQE:0.043426
+TE:0.02264
+E:0.016304

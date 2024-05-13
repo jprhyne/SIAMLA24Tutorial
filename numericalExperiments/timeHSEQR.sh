@@ -1,15 +1,14 @@
 #!/bin/env bash
-# recompile if needed
+# recompile the file if needed
 make
 maxVal=100
 
 for (( n=10; n<=$maxVal; n+=10 ))
 do
     echo "n=$n"
-    echo "Running fortran hqr 10 times"
+    echo "Running hqr 10 times"
     for (( l=1; l<=10; l+=1 ))
     do
-        echo -n "TQE:"
-        ./hqr/test_hqr2schur_fortran.exe -n $n -e
+        ./timeHSEQR.exe -n $n
     done
 done
