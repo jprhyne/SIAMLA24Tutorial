@@ -644,3 +644,178 @@ TQE:15.1407
 TE:7.70519
 E:5.42081
 Double precision
+TQE:20.7691
+TE:10.4888
+E:7.22541
+Single precision
+TQE:15.3669
+TE:7.67049
+E:5.3519
+Double precision
+TQE:20.6838
+TE:10.4195
+E:7.01919
+n=900
+Running hqr 10 times
+Single precision
+TQE:19.8366
+TE:10.0908
+E:7.50176
+Double precision
+TQE:30.4309
+TE:15.1143
+E:10.3787
+Single precision
+TQE:19.4848
+TE:9.78431
+E:7.12201
+Double precision
+TQE:30.2205
+TE:15.4667
+E:10.7872
+Single precision
+TQE:20.7063
+TE:10.3674
+E:7.50124
+Double precision
+TQE:31.8359
+TE:16.2738
+E:11.0048
+Single precision
+TQE:20.2215
+TE:10.0649
+E:7.37099
+Double precision
+TQE:31.3025
+TE:15.6236
+E:10.6586
+Single precision
+TQE:20.0754
+TE:10.1388
+E:7.28781
+Double precision
+TQE:31.1108
+TE:15.5558
+E:10.7614
+Single precision
+TQE:20.5273
+TE:10.1363
+E:7.35931
+Double precision
+TQE:31.3547
+TE:15.8436
+E:10.7682
+Single precision
+TQE:20.321
+TE:10.1582
+E:7.39953
+Double precision
+TQE:31.4247
+TE:15.7611
+E:10.7331
+Single precision
+TQE:20.8958
+TE:10.4182
+E:7.50223
+Double precision
+TQE:31.5751
+TE:15.7745
+E:10.7505
+Single precision
+TQE:20.5901
+TE:10.2729
+E:7.4209
+Double precision
+TQE:31.0265
+TE:15.4549
+E:10.5549
+Single precision
+TQE:19.9172
+TE:9.95678
+E:7.1943
+Double precision
+TQE:31.0019
+TE:15.4226
+E:10.714
+n=1000
+Running hqr 10 times
+Single precision
+TQE:30.0223
+TE:14.9692
+E:10.4421
+Double precision
+TQE:43.5272
+TE:22.0316
+E:15.0241
+Single precision
+TQE:30.791
+TE:15.4113
+E:10.7324
+Double precision
+TQE:44.0443
+TE:21.4454
+E:14.3051
+Single precision
+TQE:29.912
+TE:15.1224
+E:10.6284
+Double precision
+TQE:41.9912
+TE:21.1849
+E:14.3548
+Single precision
+TQE:30.1502
+TE:15.1132
+E:10.5434
+Double precision
+TQE:43.6728
+TE:21.8145
+E:15.0059
+Single precision
+TQE:31.7507
+TE:15.5701
+E:10.5396
+Double precision
+TQE:44.3716
+TE:22.1836
+E:15.1437
+Single precision
+TQE:31.0131
+TE:15.7248
+E:11.1131
+Double precision
+TQE:44.4413
+TE:22.3962
+E:15.5332
+Single precision
+TQE:31.7401
+TE:15.5474
+E:10.9275
+Double precision
+TQE:45.1146
+TE:22.6895
+E:15.7576
+Single precision
+TQE:31.1299
+TE:15.62
+E:10.7936
+Double precision
+TQE:45.3846
+TE:22.4824
+E:15.5267
+Single precision
+TQE:32.0841
+TE:16.0776
+E:11.113
+Double precision
+TQE:44.7085
+TE:22.8508
+E:15.5548
+Single precision
+TQE:31.8871
+TE:15.8415
+E:11.118
+Double precision
+TQE:45.4984
+TE:22.8988
+E:15.8271

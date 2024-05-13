@@ -301,4 +301,6 @@ TSWLatexianTemp*
 #*Notes.bib
 
 # Don't publish the pdf
-*.pdf
+usingTlapack.pdf
+# Don't publish make.inc
+make.inc

@@ -117,5 +117,6 @@ int main( int argc, char **argv)
     \**********************************************************************************************/
     std::cout << "Double precision" << std::endl;
     computeTimes<legacyMatrix<double,std::size_t,Layout::ColMajor>>(n);
-    // Other precisions can/will follow
+    // Calling LAPACK HSEQR
+    // Trying MPFR
 }
