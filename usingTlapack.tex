@@ -81,14 +81,19 @@
         %Fortran LAPACK where we need to call a different function when we use a different data type, and is
         %possible for there to be a bug in a port from double to single 
 
+        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackTimeSingle.pdf}
         \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfSingle.pdf}
-        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfDouble.pdf}
     \end{frame}
     \begin{frame}
         \frametitle{Timing of my project}
 
-        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfSingle.pdf}
+        \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackTimeDouble.pdf}
         \includegraphics[width=.45\textwidth]{numericalExperiments/eispackHqrTlapackPerfDouble.pdf}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Comparing EISPACK to my C++ implementation}
+        % This is comparing the results of the C++ and Fortran implementations There is a large difference in execution times. This is something to note.
+        \includegraphics[width=\textwidth]{numericalExperiments/combinedTimeResultsAll.pdf}
     \end{frame}
     \section{Differing precisions}
     \begin{frame}
